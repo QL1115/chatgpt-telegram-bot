@@ -1,6 +1,11 @@
 __pycache__
 /.idea
+.vscode
 .env
+.env.example
 .DS_Store
 /usage_logs
 venv
+/unittest/__pycache__
+/unittest/usage_logs
+/unittest/.coverage

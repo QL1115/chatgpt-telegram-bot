@@ -7,7 +7,7 @@ from openai_helper import OpenAIHelper, default_max_tokens
 from telegram_bot import ChatGPTTelegramBot
 
 
-def main():
+def main(): # pragma: no cover
     # Read .env file
     load_dotenv()
 
@@ -73,7 +73,7 @@ def main():
         'group_trigger_keyword': os.environ.get('GROUP_TRIGGER_KEYWORD', ''),
         'token_price': float(os.environ.get('TOKEN_PRICE', 0.002)),
         'image_prices': [float(i) for i in os.environ.get('IMAGE_PRICES', "0.016,0.018,0.02").split(",")],
-        'transcription_price': float(os.environ.get('TOKEN_PRICE', 0.006)),
+        'transcription_price': float(os.environ.get('TRANSCRIPTION_PRICE', 0.006)),
         'bot_language': os.environ.get('BOT_LANGUAGE', 'en'),
     }
 
@@ -83,5 +83,5 @@ def main():
     telegram_bot.run()
 
 
-if __name__ == '__main__':
+if __name__ == '__main__': # pragma: no cover
     main()

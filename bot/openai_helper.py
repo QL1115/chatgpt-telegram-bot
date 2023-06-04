@@ -56,7 +56,7 @@ class OpenAIHelper:
     ChatGPT helper class.
     """
 
-    def __init__(self, config: dict):
+    def __init__(self, config: dict):  # pragma: no cover
         """
         Initializes the OpenAI helper class with the given configuration.
         :param config: A dictionary containing the GPT configuration

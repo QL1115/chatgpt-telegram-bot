@@ -107,8 +107,8 @@ class UsageTracker:
         return usage_day, usage_month
 
     # image usage functions:
-
-    def add_image_request(self, image_size, image_prices="0.016,0.018,0.02"):
+    # ql fix: image_prices 原本預設是 "0.016,0.018,0.02"，但要改為 [0.016, 0.018, 0.02]
+    def add_image_request(self, image_size, image_prices=[0.016, 0.018, 0.02]):
         """Add image request to users usage history and update current costs.
 
         :param image_size: requested image size
@@ -118,6 +118,7 @@ class UsageTracker:
         sizes = ["256x256", "512x512", "1024x1024"]
         requested_size = sizes.index(image_size)
         image_cost = image_prices[requested_size]
+        # print("!!!!!!!!!!!!! ", type(image_cost) is str, ": ", image_cost)
         today = date.today()
         self.add_current_costs(image_cost)
 
