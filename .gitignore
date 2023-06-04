@@ -4,3 +4,10 @@ __pycache__
 .DS_Store
 /usage_logs
 venv
+.vscode/
+bot/.coverage
+bot/usage_logs/
+bot/telegram_bot.py
+
+test/htmlcov
+test/.coverage
