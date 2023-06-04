@@ -1,6 +1,8 @@
 __pycache__
 /.idea
+.vscode
 .env
+.env.example
 .DS_Store
 /usage_logs
 venv
@@ -9,5 +11,8 @@ bot/.coverage
 bot/usage_logs/
 bot/telegram_bot.py
 
-test/htmlcov
-test/.coverage
+test/
+/unittest/__pycache__
+/unittest/usage_logs
+/unittest/.coverage
+/unittest/htmlcov
