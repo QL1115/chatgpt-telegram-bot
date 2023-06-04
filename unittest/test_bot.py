@@ -6,12 +6,17 @@ from unittest.mock import patch
 import os
 from uuid import uuid4
 import sys
+
 import pathlib
 current_path = str(pathlib.Path().resolve())
-splits = current_path.split("\\")
+splits = current_path.replace("\\", "/").split("/")
 current_path = splits[:-1]
 
-sys.path.append("\\".join(current_path) + "\\bot")
+path = "/".join(current_path) + "/bot"
+sys.path.insert(0, path)
+
+from openai_helper import OpenAIHelper
+from telegram_bot import ChatGPTTelegramBot
 
 from telegram import BotCommandScopeAllGroupChats, CallbackQuery, InlineKeyboardMarkup, Update, User
 from telegram.error import RetryAfter, TimedOut
@@ -19,8 +24,6 @@ from telegram._inline.inlinequery import InlineQuery
 from telegram._message import Message
 from telegram.ext import CallbackContext
 
-from openai_helper import OpenAIHelper
-from telegram_bot import ChatGPTTelegramBot
 
 class BotTest(unittest.TestCase):
     def setUp(self):

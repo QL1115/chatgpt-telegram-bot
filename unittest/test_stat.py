@@ -7,17 +7,18 @@ import os
 import sys
 import pathlib
 current_path = str(pathlib.Path().resolve())
-splits = current_path.split("\\")
+splits = current_path.replace("\\", "/").split("/")
 current_path = splits[:-1]
 
-sys.path.append("\\".join(current_path) + "\\bot")
+path = "/".join(current_path) + "/bot"
+sys.path.insert(0, path)
+
+from openai_helper import OpenAIHelper, localized_text
+from telegram_bot import ChatGPTTelegramBot
+from usage_tracker import UsageTracker 
 
 from telegram import Update
 from telegram._message import Message
-
-from usage_tracker import UsageTracker 
-from openai_helper import OpenAIHelper, localized_text
-from telegram_bot import ChatGPTTelegramBot
 
 class TelegramBotStatMethodTest(unittest.TestCase):
     def setUp(self):
