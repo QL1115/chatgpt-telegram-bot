@@ -14,11 +14,11 @@ from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, \
 
 from pydub import AudioSegment
 
-from utils import is_group_chat, get_thread_id, message_text, wrap_with_indicator, split_into_chunks, \
+from bot.utils import is_group_chat, get_thread_id, message_text, wrap_with_indicator, split_into_chunks, \
     edit_message_with_retry, get_stream_cutoff_values, is_allowed, get_remaining_budget, is_admin, is_within_budget, \
     get_reply_to_message_id, add_chat_request_to_usage_tracker, error_handler
-from openai_helper import OpenAIHelper, localized_text
-from usage_tracker import UsageTracker
+from bot.openai_helper import OpenAIHelper, localized_text
+from bot.usage_tracker import UsageTracker
 
 
 class ChatGPTTelegramBot:

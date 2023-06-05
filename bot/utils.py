@@ -8,7 +8,7 @@ import telegram
 from telegram import Message, MessageEntity, Update, ChatMember, constants
 from telegram.ext import CallbackContext, ContextTypes
 
-from usage_tracker import UsageTracker
+from bot.usage_tracker import UsageTracker
 
 
 def message_text(message: Message) -> str:
