@@ -20,16 +20,35 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         if [ -f othertest_requirements.txt ]; then pip install -r othertest_requirements.txt; fi
-    - name: python fuzz test
-      run: |
+    - name: main fuzz test
+      run: 
         cd fuzz_test
-        python main_fuzz.py
+        python main_fuzz.py 
+        timeout-minutes: 1
+    - name: openai helper fuzz test
+      run: 
+        cd fuzz_test
         python openai_helper_fuzz.py
+        timeout-minutes: 1
+    - name: telegram bot fuzz test
+      run: 
+        cd fuzz_test
         python telegram_bot_fuzz.py
+        timeout-minutes: 1
+    - name: usage tracker fuzz test
+      run: 
+        cd fuzz_test
         python usage_tracker_fuzz.py
+        timeout-minutes: 1
+    - name: utils fuzz test
+      run: 
+        cd fuzz_test
         python utils_fuzz.py
+        timeout-minutes: 1
     - name: afl test
       run: 
         py-afl-fuzz -m 200 -t 5000+ -o results/ -i bot/ -- python fuzz_test/afl_test.py
+        timeout-minutes: 3
+        
 
         
