@@ -12,22 +12,14 @@ from selenium.webdriver.support.ui import Select
 import pickle
 import os
 
-# def rm_timestamp(string):
-#     lines = string.splitlines()
-#     new_string = "\n".join(lines[:-1])
-#     return new_string
+
 def rm_timestamp(string):
     new_string = ""
-    # new_string = string.lstrip()
-    # print(new_string)
     lines = string.splitlines()
-    # print(lines)
     if len(lines) > 1:
         new_string = "\n".join(lines[:-1])
     elif len(lines) == 1:
         new_string = lines[0]
-    # else:
-    #     new_string = ""
     return new_string
 options = Options()
 options.add_argument('--headless')
@@ -39,13 +31,6 @@ driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), opti
 
 #driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 driver.get("https://web.telegram.org/a/")
-#telegram使用local storage儲存登入資訊，但網站好像擋掉local storage的script，所以無法使用local storage登入
-# time.sleep(5)
-# script = """
-#     window.localStorage.setItem('dc', '5');
-#     window.localStorage.setItem('user_auth', '0bcf7a6c0c43e935b5424614015fe6a6a50a44d2d1de7905a9e79c3248b6537928b347ff6f92182e02f93435418c71c3af6fc5ef67da0eff24d75d08819541c7e5f080af7a99c1792ebf154bd8fc5761f912ba4d515651766f038d9054b4988e539ba2e125eccd65ce80a613e6d9fc70ec2e35403d702f019163e95592c646da257f5cb35734b422e49f9103ae3ce1e1a54e87f6bca7803e7e09644081e5959e473ffb83be5ba547539c25adf70b3a13e3b3e10f4a2cc6b8f8b3732bd9280c8fddb4a1e903262c8556c650b77389e9045803384b6dace61cfc9698d1db56b765a7b65a2953d22da7ad0162eb28fe0226f4b911c22095fb67c4ebd1cd926753fa');
-# """
-# driver.execute_script(script)
 
 driver.get("https://web.telegram.org/a/")
 driver.maximize_window()
@@ -204,90 +189,5 @@ if login == 0:
                     continue
             if wait_time >= 1000:
                 print("please try again.")
-    # question = input("Ask something: ")
-    # chatbox_input.send_keys(question)
-    # chatbox_input.send_keys(Keys.RETURN)
-    # time.sleep(5)
-    #     # 找到具有指定 class 的所有元素
-    # elements = driver.find_elements(By.CLASS_NAME, "text-content")
-    # if elements:
-    # #取得最後一個元素的內容
-    #     while(True):
-    #         if len(elements)>=2:
-    #             print(elements[-2].text)
-    #             print("ans:",elements[-1].text)
-    #             break
-    #             if elements[-2] != question:
-    #                 continue
-    #             else:
-    #                 last_element = elements[-1]
-    #                 content = last_element.text
-    #                 # 輸出最後一個元素的內容
-    #                 print(content)
-    #                 break
-    #         else:
-    #             continue
-    #      #print(elements.text)
-        
-    # if elements:
-    #     #print(elements.text)
-    #     for element in elements:
-    #         print(element.text)
-    #     last_element = elements[-1]
-    #     content = last_element.text
-    #     # 輸出最後一個元素的內容
-    #     print("d: ",content)
-    # Quit the driver
-    # driver.quit()
-
-    # with open('cookies.pkl', 'rb') as f:
-    #     cookies = pickle.load(f)
-    #     # Launch the browser again and load the cookies
-    
-    # # Launch the browser again and load the cookies
-    # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-    # driver.get('https://web.telegram.org/a/')
-    # for cookie in cookies:
-    #     driver.add_cookie(cookie)
-    # driver.get('https://web.telegram.org/a/')
-
-
-# driver.get("https://web.telegram.org/a/#5703123553")
-# driver.maximize_window()
-
-
-
-# element = driver.find_element_by_css_selector('[aria-label="your_aria_label"]')
-# link = driver.find_element_by_xpath("//h3[text()='Click here']")
-
-#time.sleep(100)
-# driver.implicitly_wait(50)
-# a = WebDriverWait(driver, 10).until(lambda d: d.find_element(By.CLASS_NAME,"su-post"))
-# b= a.find_element(By.CSS_SELECTOR,".su-post > a")
-# b.click()
-
-# driver.implicitly_wait(50)
-# title = driver.find_element(By.CLASS_NAME,"single-post-title")
-# print(title.text)#get_attribute("innerHTML")
-# driver.implicitly_wait(50)
-# content = driver.find_elements(By.TAG_NAME, 'p')
-# for i in content:
-#     print(i.text)
-
-# driver.switch_to.new_window('tab')
-# driver.get("https://www.google.com")
-# driver.implicitly_wait(50)
-
-# search_box = driver.find_element(By.NAME,"q")
-# search_box.send_keys("311581024")
-# search_box.send_keys(Keys.RETURN)
-
-# driver.implicitly_wait(50)
-# result_element = driver.find_elements(By.CLASS_NAME, "DKV0Md")#By.TAG_NAME, 'h3'
-# driver.implicitly_wait(50)
-# if len(result_element) >= 2:
-#     print(result_element[1].text)
-# else:
-#     print("There are no search results.")
 
 driver.quit()

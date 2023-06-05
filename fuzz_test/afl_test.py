@@ -195,28 +195,6 @@ if __name__ == '__main__':
         # update = input_data.decode('utf-8')  # Convert bytes to string
         # update = update.strip()  # Remove trailing newline character
 
-        # # Fuzz the Telegram bot methods
-        # telegram_bot.help(update, None)
-        # telegram_bot.stats(update, None)
-        # telegram_bot.resend(update, None)
-        # telegram_bot.reset(update, None)
-        # telegram_bot.image(update, None)
-        # telegram_bot.transcribe(update, None)
-        # telegram_bot.prompt(update, None)
-        # telegram_bot.inline_query(update, None)
-        # telegram_bot.send_inline_query_result(update, None, "hi")
-        # telegram_bot.handle_callback_inline_query(update, None)
-        # telegram_bot.edit_message_with_retry(update, None, 1, "hi")
-        # telegram_bot.send_disallowed_message(update, None)
-        # telegram_bot.send_budget_reached_message(update, None)
-        # telegram_bot.error_handler(update, None)
-        # telegram_bot.is_user_in_group(update, None, 1)
-        # telegram_bot.is_allowed(update, None)
-        # telegram_bot.is_admin(update, None)
-        # telegram_bot.get_user_budget(update)
-        # telegram_bot.check_allowed_and_within_budget(update, None)
-        # telegram_bot.add_chat_request_to_usage_tracker(update, None)
-        # telegram_bot.post_init(update)
         # #bot.run()
         chat_main()
 
