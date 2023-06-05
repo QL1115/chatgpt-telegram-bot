@@ -107,8 +107,8 @@ class UsageTracker:
         return usage_day, usage_month
 
     # image usage functions:
-
-    def add_image_request(self, image_size, image_prices="0.016,0.018,0.02"):
+    # software testing 2023 fix: image_prices 原本預設是 "0.016,0.018,0.02"，但要改為 [0.016, 0.018, 0.02]
+    def add_image_request(self, image_size, image_prices=[0.016, 0.018, 0.02]): # original:  image_prices="0.016,0.018,0.02"
         """Add image request to users usage history and update current costs.
 
         :param image_size: requested image size
