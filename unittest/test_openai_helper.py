@@ -101,6 +101,48 @@ class TestOpenAIHelper(unittest.TestCase):
         self.assertEqual(self.openai_helper.conversations[chat_id][2]["role"], "assistant")
         self.assertEqual(self.openai_helper.conversations[chat_id][2]["content"], "The weather is sunny.")
 
+    def test_config(self):
+        self.assertEqual(self.openai_helper.config['api_key'], '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')
+        self.assertEqual(self.openai_helper.config['model'], 'gpt-3.5-turbo')
+
+    async def test_reset_conversation(self):
+        chat_id = 1
+        self.openai_helper.conversations[chat_id] = [
+            {"role": "user", "content": "Hello"},
+            {"role": "assistant", "content": "Hi there!"}
+        ]
+        await self.openai_helper.reset_conversation(chat_id)
+        self.assertEqual(len(self.openai_helper.conversations[chat_id]), 0)
+
+    async def test_get_max_tokens(self):
+        self.assertEqual(self.openai_helper.get_max_tokens('gpt-3.5-turbo'), 1200)
+        self.assertEqual(self.openai_helper.get_max_tokens('gpt-4'), 2400)
+
+    async def test_should_stop(self):
+        self.assertTrue(self.openai_helper.should_stop('You: stop'))
+        self.assertFalse(self.openai_helper.should_stop('You: continue'))
+
+    async def test_update_conversation_stats(self):
+        chat_id = 1
+        self.openai_helper.update_conversation_stats(chat_id, 2, 8)
+        self.assertEqual(self.openai_helper.conversation_stats[chat_id]['messages'], 2)
+        self.assertEqual(self.openai_helper.conversation_stats[chat_id]['tokens'], 8)
+
+    async def test_strip_assistant_prompt(self):
+        self.assertEqual(self.openai_helper.strip_assistant_prompt('Assistant prompt text: Hello'), 'Hello')
+
+    async def test_filter_response(self):
+        self.assertEqual(self.openai_helper.filter_response('Hello\n- OpenAI GPT-3.5-turbo'), 'Hello')
+
+    async def test_get_default_model(self):
+        self.assertEqual(self.openai_helper.get_default_model(), 'gpt-3.5-turbo')
+
+    async def test_get_assistant_prompt(self):
+        self.assertEqual(self.openai_helper.get_assistant_prompt(), 'Assistant prompt text')
+
+    async def test_get_model(self):
+        self.assertEqual(self.openai_helper.get_model(), 'gpt-3.5-turbo')
+
 if __name__ == '__main__':  # pragma: no cover
     asyncio.run(unittest.main())
 
