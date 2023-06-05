@@ -10,13 +10,8 @@ current_path = str(pathlib.Path().resolve())
 splits = current_path.replace("\\", "/").split("/")
 current_path = splits[:-1]
 
-# sys.path.append("\\".join(current_path) + "\\bot")
 path = "/".join(current_path) + "/bot"
-print("append path:", path)
 sys.path.insert(0, path)
-
-print("sys path:", sys.path)
-# sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from telegram import Update
 from telegram._message import Message

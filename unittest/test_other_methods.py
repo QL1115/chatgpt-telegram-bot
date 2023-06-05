@@ -8,10 +8,11 @@ from uuid import uuid4
 import sys
 import pathlib
 current_path = str(pathlib.Path().resolve())
-splits = current_path.split("\\")
+splits = current_path.replace("\\", "/").split("/")
 current_path = splits[:-1]
 
-sys.path.append("\\".join(current_path) + "\\bot")
+path = "/".join(current_path) + "/bot"
+sys.path.insert(0, path)
 
 from telegram import BotCommandScopeAllGroupChats, CallbackQuery, InlineKeyboardMarkup, Update, User
 from telegram.error import RetryAfter, TimedOut
