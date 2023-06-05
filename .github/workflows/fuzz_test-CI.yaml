@@ -1,4 +1,4 @@
-name: security_test CI
+name: fuzz_test CI
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
@@ -18,12 +18,12 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        cd app_test
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        if [ -f othertest_requirements.txt ]; then pip install -r othertest_requirements.txt; fi
     - name: python fuzz test
       run: |
         cd fuzz_test
-        python main_fuzz.ppy
+        python main_fuzz.py
         python openai_helper_fuzz.py
         python telegram_bot_fuzz.py
         python usage_tracker_fuzz.py

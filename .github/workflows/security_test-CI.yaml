@@ -20,11 +20,8 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         if [ -f othertest_requirements.txt ]; then pip install -r othertest_requirements.txt; fi
-    - name: Lint with flake8 ,pylint, bandit
-      run: |
-        cd bot
-        flake8 .
-    - name: Lint with pylint, bandit
+
+    - name: Lint with pylint
       run: |
         cd bot
         pylint main.py
@@ -40,3 +37,7 @@ jobs:
         bandit telegram_bot.py
         bandit usage_tracker.py
         bandit utils.py
+    - name: Lint with flake8 
+      run: |
+        cd bot
+        flake8 .

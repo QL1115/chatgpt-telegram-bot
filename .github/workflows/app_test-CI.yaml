@@ -1,4 +1,4 @@
-name: Midterm CI
+name: app_test CI
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
