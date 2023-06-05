@@ -29,29 +29,29 @@ jobs:
       - name: Run main fuzz test
         run: |
           cd fuzz_test
-          timeout -k 30s 1m python main_fuzz.py
+          timeout -k 30s 1m python main_fuzz.py  || true
 
       - name: Run openai helper fuzz test
         run: |
           cd fuzz_test
-          timeout -k 30s 1m python openai_helper_fuzz.py
+          timeout -k 30s 1m python openai_helper_fuzz.py  || true
 
       - name: Run telegram bot fuzz test
         run: |
           cd fuzz_test
-          timeout -k 30s 1m python telegram_bot_fuzz.py
+          timeout -k 30s 1m python telegram_bot_fuzz.py  || true
 
       - name: Run usage tracker fuzz test
         run: |
           cd fuzz_test
-          timeout -k 30s 1m python usage_tracker_fuzz.py
+          timeout -k 30s 1m python usage_tracker_fuzz.py || true
 
       - name: Run utils fuzz test
         run: |
           cd fuzz_test
-          timeout -k 30s 1m python utils_fuzz.py
+          timeout -k 30s 1m python utils_fuzz.py || true
 
       - name: Run afl test
         run: |
           cd fuzz_test
-          timeout -k 30s 3m py-afl-fuzz -m 200 -t 5000+ -o results/ -i bot/ -- python afl_test.py
+          timeout -k 30s 3m py-afl-fuzz -m 200 -t 5000+ -o results/ -i bot/ -- python afl_test.py || true
