@@ -1,0 +1,4 @@
+selenium==4.8.2
+webdriver_manager==3.8.5
+python_afl==0.7.3
+atheris==2.2.2
