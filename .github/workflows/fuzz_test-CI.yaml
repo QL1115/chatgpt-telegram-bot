@@ -18,25 +18,18 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
+        cd app_test
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        if [ -f othertest_requirements.txt ]; then pip install -r othertest_requirements.txt; fi
-    - name: Lint with flake8 ,pylint, bandit
+    - name: python fuzz test
       run: |
-        cd bot
-        flake8 .
-    - name: Lint with pylint, bandit
-      run: |
-        cd bot
-        pylint main.py
-        pylint openai_helper.py
-        pylint telegram_bot.py
-        pylint usage_tracker.py
-        pylint utils.py
-    - name: Lint with bandit
-      run: |
-        cd bot
-        bandit main.py
-        bandit openai_helper.py
-        bandit telegram_bot.py
-        bandit usage_tracker.py
-        bandit utils.py
+        cd fuzz_test
+        python main_fuzz.ppy
+        python openai_helper_fuzz.py
+        python telegram_bot_fuzz.py
+        python usage_tracker_fuzz.py
+        python utils_fuzz.py
+    - name: afl test
+      run: 
+        py-afl-fuzz -m 200 -t 5000+ -o results/ -i bot/ -- python fuzz_test/afl_test.py
+
+        
