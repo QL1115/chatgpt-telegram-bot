@@ -7,18 +7,22 @@ import os
 import sys
 import pathlib
 current_path = str(pathlib.Path().resolve())
-splits = current_path.split("\\")
+splits = current_path.replace("\\", "/").split("/")
 current_path = splits[:-1]
 
 # sys.path.append("\\".join(current_path) + "\\bot")
-print("append path:", "\\".join(current_path) + "\\bot")
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+path = "/".join(current_path) + "/bot"
+print("append path:", path)
+sys.path.insert(0, path)
+
+print("sys path:", sys.path)
+# sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from telegram import Update
 from telegram._message import Message
 
-from bot.openai_helper import OpenAIHelper, localized_text, default_max_tokens
-from bot.telegram_bot import ChatGPTTelegramBot
+from openai_helper import OpenAIHelper, localized_text, default_max_tokens
+from telegram_bot import ChatGPTTelegramBot
 
 class TelegramBotHelpMethodTest(unittest.TestCase):
     def setUp(self):
@@ -39,7 +43,7 @@ class TelegramBotHelpMethodTest(unittest.TestCase):
             # check group chat keywords: "/chat 與機器人聊天！"
             self.assertTrue(group_command_keywords in help_text)
 
-        with patch("bot.telegram_bot.is_group_chat") as mock_is_group_chat:
+        with patch("telegram_bot.is_group_chat") as mock_is_group_chat:
             mock_is_group_chat.return_value = True
 
             mock_update = Mock(spec=Update)
@@ -61,7 +65,7 @@ class TelegramBotHelpMethodTest(unittest.TestCase):
              # check no group chat keywords: "/chat 與機器人聊天！"
             self.assertFalse(group_command_keywords in help_text)
 
-        with patch("bot.telegram_bot.is_group_chat") as mock_is_group_chat:
+        with patch("telegram_bot.is_group_chat") as mock_is_group_chat:
             mock_is_group_chat.return_value = False
 
             mock_message = Mock(wraps=Message)
