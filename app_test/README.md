@@ -22,13 +22,9 @@ python usage_tracker_fuzz.py
 
 ## AFL_test
 in venv
-```
-py-afl-fuzz -m 200 -t 5000+ -o fuzz_test/results/ -M fuzzer01 -i fuzz_test/in -- python fuzz_test/afl_test.py
-```
-*note: you need to comment out the `telegram_bot.run()` in main.py line83 or you will get timeout error for AFL test.
 
 ```
- py-afl-fuzz -m 200 -t 5000+ -o results/ -i bot/ -- python fuzz_test/afl_test.py
+py-afl-fuzz -m 200 -t 5000+ -o fuzz_test/results/ -M fuzzer01 -i fuzz_test/in -- python fuzz_test/afl_test.py
 ```
 
 
