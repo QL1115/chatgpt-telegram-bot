@@ -57,7 +57,7 @@ ${your_telegram_bot_key}
 bash run_test.sh
 ```
 ### Security Test
-bandit
+* bandit
 ```
 cd bot
 bandit main.py
@@ -68,7 +68,7 @@ bandit utils.py
 ```
 
 ### Code Quality Test
-pylint
+* pylint
 ```
 cd bot
 pylint main.py
@@ -78,8 +78,7 @@ pylint usage_trackey.py
 pylint utils.py
 ```
 
-### Code Quality Test
-Flake8
+* Flake8
 ```
 cd bot
 flake8 main.py
