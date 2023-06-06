@@ -35,7 +35,6 @@ jobs:
         run: |
           cd fuzz_test
           export AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1
-          echo core >/proc/sys/kernel/core_pattern
           timeout -k 30s 3m py-afl-fuzz -m 200 -t 5000+ -o results/ -i bot/ -- python afl_test.py || true
 
       - name: Run atheris main fuzz test
