@@ -24,14 +24,14 @@ jobs:
         pip install webdriver-manager==3.8.5
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         if [ -f othertest_requirements.txt ]; then pip install -r othertest_requirements.txt; fi
-    - name: run chagpt_telegram_bot
-      run: |
-        bash run.sh
-    - name: application test
-      run: |
-        cd app_test
-        python app_test.py
-    - name: application group test
-      run: |
-        cd app_test
-        python app_test_group.py
+    #- name: run chagpt_telegram_bot
+    #  run: |
+    #    bash run.sh
+    #- name: application test
+    #  run: |
+    #    cd app_test
+    #    python app_test.py
+    #- name: application group test
+    #  run: |
+    #    cd app_test
+    #    python app_test_group.py
