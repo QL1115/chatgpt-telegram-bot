@@ -32,26 +32,31 @@ py-afl-fuzz -m 200 -t 5000+ -o fuzz_test/results/ -M fuzzer01 -i fuzz_test/in --
 ```
 
 
-## run.sh
+## execute the chatGPT telegram bot project 
 ```
 bash run.sh
 ```
 
-## modify_api & env_setting
+### modify_api & env_setting
 * modify_api: modify api by directly input
 * env_setting:modify api by parameter(dafult by the api_config file)
 you can choose the method you want (by input or by dby api_config file) by modify run.sh 
 * by input: `python app_test/modify_api.py`   (default)
 * by api_config file: `python app_test/env_setting.py`
 
-## api_config file
+### api_config file
 modify `app_test/api_config` file to
 ```
 ${your_open_api key} 
 ${your_telegram_bot_key}
 ```
 
-## Security Test
+
+## run Security Test & Code Quality Test
+```
+bash run_test.sh
+```
+### Security Test
 bandit
 ```
 cd bot
@@ -62,7 +67,7 @@ bandit usage_trackey.py
 bandit utils.py
 ```
 
-## Code Quality Test
+### Code Quality Test
 pylint
 ```
 cd bot
