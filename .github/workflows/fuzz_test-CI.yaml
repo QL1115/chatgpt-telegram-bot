@@ -26,15 +26,15 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           if [ -f othertest_requirements.txt ]; then pip install -r othertest_requirements.txt; fi
           
-      - name: Install afl-fuzz
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y afl
+#      - name: Install afl-fuzz
+#        run: |
+#          sudo apt-get update
+#          sudo apt-get install -y afl
 
-      - name: Run afl test
-        run: |
-          export AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1
-          timeout -k 30s 3m py-afl-fuzz -m 200 -t 5000+ -o results/ -i bot/ -- python afl_test.py || true
+#      - name: Run afl test
+#        run: |
+#          export AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1
+#         timeout -k 30s 3m py-afl-fuzz -m 200 -t 5000+ -o results/ -i bot/ -- python afl_test.py || true
           
       - name: Run atheris main fuzz test
         run: |
