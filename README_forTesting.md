@@ -1,5 +1,13 @@
 # chatGPTbot_Testing
 ## Application Test 
+
+### Unittest
+* test for each functions in bot folder
+```
+cd unittest
+python3 -m unittest
+```
+
 ### Selenium
 * test for chat_ai
 ```
