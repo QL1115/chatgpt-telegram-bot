@@ -39,26 +39,26 @@ jobs:
       - name: Run atheris main fuzz test
         run: |
           cd fuzz_test
-          timeout -k 30s 1m python main_fuzz.py  || true
+          timeout -k 30s 5m python main_fuzz.py  || true
 
       - name: Run atheris openai helper fuzz test
         run: |
           cd fuzz_test
-          timeout -k 30s 1m python openai_helper_fuzz.py  || true
+          timeout -k 30s 5m python openai_helper_fuzz.py  || true
 
       - name: Run atheris telegram bot fuzz test
         run: |
           cd fuzz_test
-          timeout -k 30s 1m python telegram_bot_fuzz.py  || true
+          timeout -k 30s 5m python telegram_bot_fuzz.py  || true
 
       - name: Run atheris usage tracker fuzz test
         run: |
           cd fuzz_test
-          timeout -k 30s 1m python usage_tracker_fuzz.py || true
+          timeout -k 30s 5m python usage_tracker_fuzz.py || true
 
       - name: Run atheris utils fuzz test
         run: |
           cd fuzz_test
-          timeout -k 30s 1m python utils_fuzz.py || true
+          timeout -k 30s 5m python utils_fuzz.py || true
 
 
