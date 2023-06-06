@@ -1,20 +1,21 @@
 # chatGPTbot_Testing
-## selenium
-test for chat_ai
+## Application Test 
+- Selenium
+* test for chat_ai
 ```
 cd app_test
 python app_test.py
 ```
 
 
-test for chat_ai group
+* test for chat_ai group
 ```
 cd app_test
 python app_test_group.py
 ```
 * you should enter your telegram phonenumber & the verification code for login.
 
-## atheris fuzz test
+## Atheris fuzz test
 
 ```
 cd fuzz_test
@@ -32,7 +33,7 @@ py-afl-fuzz -m 200 -t 5000+ -o fuzz_test/results/ -M fuzzer01 -i fuzz_test/in --
 ```
 
 
-## execute the chatGPT telegram bot project 
+## Execute the chatGPT telegram bot project 
 ```
 bash run.sh
 ```
