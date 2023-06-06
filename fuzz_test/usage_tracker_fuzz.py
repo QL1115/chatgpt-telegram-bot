@@ -20,7 +20,7 @@ def test_usage_tracker(data):
     elif input_data == "get_current_token_usage":
         tracker.get_current_token_usage()
     elif input_data == "add_image_request":
-        tracker.add_image_request("256x256")
+        tracker.add_image_request("256x256")#, image_prices=[0.016, 0.018, 0.02]
     elif input_data == "get_current_image_count":
         tracker.get_current_image_count()
     elif input_data == "add_transcription_seconds":
