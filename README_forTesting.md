@@ -8,6 +8,13 @@ cd unittest
 python3 -m unittest
 ```
 
+### Envrroment Setup
+```
+python -m venv venv
+source venv/bin/activate
+pip install -r othertest_requirements.txt
+```
+
 ### Selenium
 * test for chat_ai
 ```
