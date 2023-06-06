@@ -106,7 +106,8 @@ if __name__ == '__main__':
 
         # Example usage
         tracker.add_chat_tokens(100)
-        #tracker.add_image_request("256x256")
+        #tracker.add_image_request(image_size = "256x256")#
+        tracker.add_image_request(image_size = "256x256", image_prices=[0.016, 0.018, 0.02])#
         tracker.add_transcription_seconds(120)
 
         current_token_usage = tracker.get_current_token_usage()
