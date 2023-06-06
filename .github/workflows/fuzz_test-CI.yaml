@@ -25,7 +25,7 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           if [ -f othertest_requirements.txt ]; then pip install -r othertest_requirements.txt; fi
-          
+
       - name: Install afl-fuzz
         run: |
           sudo apt-get update
@@ -34,31 +34,41 @@ jobs:
       - name: Run afl test
         run: |
           cd fuzz_test
+          export AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1
+          echo core >/proc/sys/kernel/core_pattern
           timeout -k 30s 3m py-afl-fuzz -m 200 -t 5000+ -o results/ -i bot/ -- python afl_test.py || true
-          
+
       - name: Run atheris main fuzz test
         run: |
           cd fuzz_test
-          timeout -k 30s 1m python main_fuzz.py  || true
+          export AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1
+          echo core >/proc/sys/kernel/core_pattern
+          timeout -k 30s 1m python main_fuzz.py || true
 
       - name: Run atheris openai helper fuzz test
         run: |
           cd fuzz_test
-          timeout -k 30s 1m python openai_helper_fuzz.py  || true
+          export AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1
+          echo core >/proc/sys/kernel/core_pattern
+          timeout -k 30s 1m python openai_helper_fuzz.py || true
 
       - name: Run atheris telegram bot fuzz test
         run: |
           cd fuzz_test
-          timeout -k 30s 1m python telegram_bot_fuzz.py  || true
+          export AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1
+          echo core >/proc/sys/kernel/core_pattern
+          timeout -k 30s 1m python telegram_bot_fuzz.py || true
 
       - name: Run atheris usage tracker fuzz test
         run: |
           cd fuzz_test
+          export AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1
+          echo core >/proc/sys/kernel/core_pattern
           timeout -k 30s 1m python usage_tracker_fuzz.py || true
 
       - name: Run atheris utils fuzz test
         run: |
           cd fuzz_test
+          export AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1
+          echo core >/proc/sys/kernel/core_pattern
           timeout -k 30s 1m python utils_fuzz.py || true
-
-
