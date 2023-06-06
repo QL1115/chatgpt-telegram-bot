@@ -52,7 +52,7 @@ ${your_telegram_bot_key}
 ```
 
 
-## run Security Test & Code Quality Test
+## Run Security Test & Code Quality Test
 ```
 bash run_test.sh
 ```
@@ -78,7 +78,7 @@ pylint usage_trackey.py
 pylint utils.py
 ```
 
-## Code Quality Test
+### Code Quality Test
 Flake8
 ```
 cd bot
