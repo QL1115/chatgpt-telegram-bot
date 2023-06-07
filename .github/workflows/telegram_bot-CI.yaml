@@ -24,6 +24,11 @@ jobs:
     - name: Test with unittest and coverage report
       run: |
         cd unittest
-        python -m coverage run -m unittest test_help.py test_image.py test_other_methods.py test_prompt.py test_prompt.py test_resend.py test_reset.py test_stat.py test_transcribe.py 
+        python -m coverage run -m unittest
+        coverage report
+
+    - name: Coverage report
+      run: |
+        cd unittest
         coverage report
 
