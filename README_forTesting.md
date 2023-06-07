@@ -44,7 +44,7 @@ python usage_tracker_fuzz.py
 in venv
 
 ```
-py-afl-fuzz -m 200 -t 5000+ -o fuzz_test/results/ -M fuzzer01 -i fuzz_test/in -- python fuzz_test/afl_test.py
+py-afl-fuzz -m 200 -t 5000+ -o fuzz_test/results/ -i fuzz_test/in -- python fuzz_test/afl_test.py
 ```
 
 
