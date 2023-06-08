@@ -1,4 +1,4 @@
-${your_open_api key} 
-${your_telegram_bot_key}
+{{your_open_api_key}}
+{{your_telegram_bot_key}}
 -
 *
