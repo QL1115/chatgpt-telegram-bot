@@ -63,8 +63,8 @@ you can choose the method you want (by input or by api_config file) by modify ru
 ### api_config file
 modify `app_test/api_config` file to
 ```
-${your_open_api key} 
-${your_telegram_bot_key}
+{{your_open_api_key}}
+{{your_telegram_bot_key}}
 ```
 
 
