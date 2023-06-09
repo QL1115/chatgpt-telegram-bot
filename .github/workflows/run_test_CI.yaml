@@ -25,7 +25,7 @@ jobs:
         python -m venv venv
         source venv/bin/activate
         pip install -r requirements.txt
-        python env_setting.py --openai_key ${{ secrets.YOUR_OPEN_API_KEY }} --telegram_token ${{ secrets.YOUR_TELEGRAM_BOT_KEY }}
+        python app_test/env_setting.py --openai_key ${{ secrets.YOUR_OPEN_API_KEY }} --telegram_token ${{ secrets.YOUR_TELEGRAM_BOT_KEY }}
         python bot/main.py &
 
         # 執行十分鐘
