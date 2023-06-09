@@ -1,4 +1,4 @@
-
+import os
 import argparse
 
 
@@ -40,11 +40,22 @@ parser.add_argument(
 args = parser.parse_args()
 print(args)
 
+
+
 openai_api_key = args.openai_key
 telegram_bot_token = args.telegram_token
 admin_user_ids = args.admin_uid
 allowed_telegram_user_ids = args.allowed_uid
 
+
+
+if os.environ.get('your_open_api_key'):
+    openai_api_key = os.environ.get('your_open_api_key')
+if os.environ.get('your_telegram_bot_key'):
+    telegram_bot_token = os.environ.get('your_telegram_bot_key')
+
+    
+    
 file_path = '.env.example'  # 替换为你要读取的文件路径
 
 try:
