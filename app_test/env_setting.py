@@ -49,10 +49,10 @@ allowed_telegram_user_ids = args.allowed_uid
 
 
 
-if os.environ.get('your_open_api_key'):
-    openai_api_key = os.environ.get('your_open_api_key')
-if os.environ.get('your_telegram_bot_key'):
-    telegram_bot_token = os.environ.get('your_telegram_bot_key')
+# if os.environ.get('your_open_api_key'):
+#     openai_api_key = os.environ.get('your_open_api_key')
+# if os.environ.get('your_telegram_bot_key'):
+#     telegram_bot_token = os.environ.get('your_telegram_bot_key')
 
     
     
