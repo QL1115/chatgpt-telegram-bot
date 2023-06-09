@@ -22,4 +22,14 @@ jobs:
         if [ -f othertest_requirements.txt ]; then pip install -r othertest_requirements.txt; fi
     - name: run chatgpt_telegram_bot
       run: |
-        bash run.sh                                              
+        python -m venv venv
+        source venv/bin/activate
+        pip install -r requirements.txt
+        python env_setting.py --openai_key ${{ secrets.YOUR_OPEN_API_KEY }} --telegram_token ${{ secrets.YOUR_TELEGRAM_BOT_KEY }}
+        python bot/main.py &
+
+        # 執行十分鐘
+        sleep 60
+
+        # 停止Python腳本
+        kill $(pgrep -f "python bot/main.py")
