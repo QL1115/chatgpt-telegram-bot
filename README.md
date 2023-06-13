@@ -33,7 +33,8 @@ python app_test.py
 cd app_test
 python app_test_group.py
 ```
-* you should enter your telegram phonenumber & the verification code for login.
+* you should enter your telegram phonenumber (ex 972123456) & the verification code which send to your telegram for login.
+
 
 ## Atheris fuzz test
 
