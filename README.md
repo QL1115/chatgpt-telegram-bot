@@ -57,8 +57,8 @@ bash run.sh
 * modify_api: modify api by directly input
 * env_setting:modify api by parameter(dafult by the api_config file)
 you can choose the method you want (by input or by api_config file) by modify run.sh 
-* by input: `python app_test/modify_api.py`  
-* by api_config file or os enviroment variable: `python app_test/env_setting.py`   (default)
+* by input: `python app_test/modify_api.py`  (default)
+* by api_config file or os enviroment variable: `python app_test/env_setting.py`   
 
 ### api_config file
 modify `app_test/api_config` file to
