@@ -34,8 +34,8 @@ cd app_test
 python app_test_group.py
 ```
 * you should enter your telegram phonenumber (ex 972123456) & the verification code which send to your telegram for login.
-* chatroom_number:
-the latest number in the chatbox url in your telegram web , for example" https://web.telegram.org/a/#5703123553",chatroom_number is '5703123553'
+* chatroom_id:
+the latest number in the chatbox url in your telegram web , for example" https://web.telegram.org/a/#5703123553",chatroom_id is '5703123553'
 
 if you need to change the chatroom number to select , please modify "5703123553" in the below code in app_test.py
 ```
