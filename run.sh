@@ -2,7 +2,7 @@
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-python python app_test/modify_api.py #app_test/env_setting.py
+python app_test/modify_api.py #app_test/env_setting.py
 python bot/main.py &
 
 # 執行一百分鐘
