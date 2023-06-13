@@ -34,7 +34,17 @@ cd app_test
 python app_test_group.py
 ```
 * you should enter your telegram phonenumber (ex 972123456) & the verification code which send to your telegram for login.
+* chatroom_number:
+the latest number in the chatbox url in your telegram web , for example" https://web.telegram.org/a/#5703123553",chatroom_number is '5703123553'
 
+if you need to change the chatroom number to select , please modify "5703123553" in the below code in app_test.py
+```
+chatai_column = driver.find_element(By.XPATH, "//a[@class='ListItem-button' and @href='#5703123553']")
+```
+and "-955937484" in the below code in app_test_group.py
+```
+chatai_group_column = driver.find_element(By.XPATH, "//a[@class='ListItem-button' and @href='#-955937484']")
+```
 
 ## Atheris fuzz test
 
