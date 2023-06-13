@@ -7,8 +7,13 @@
 cd unittest
 python3 -m unittest
 ```
+### Unit Test Environment Setup
+```
 
-### Envrroment Setup
+pip install -r unittest_requirements.txt
+```
+
+### Other Test Environment Setup
 ```
 python -m venv venv
 source venv/bin/activate
@@ -59,6 +64,20 @@ bash run.sh
 you can choose the method you want (by input or by api_config file) by modify run.sh 
 * by input: `python app_test/modify_api.py`  (default)
 * by api_config file or os environment variable: `python app_test/env_setting.py`   
+
+### env_setting.py parameter
+* -openai_key : 
+    Your OpenAI API key
+    default by api_config file
+* -telegram_token: :
+    Your Telegram bot token obtained using @BotFather
+    default by api_config file
+* -admin_uid: 
+    Telegram user ID of admins, or - to assign no admin
+    default by ’-’
+*  -allowed_uid:
+    Comma separated list of telegram user IDs, or * to allow all
+    default by ’*’
 
 ### api_config file
 modify `app_test/api_config` file to
